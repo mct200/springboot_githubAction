@@ -34,5 +34,5 @@ jobs:
         tags: mct22/springboot-github-action:latest
         dockerfile: Dockerfile
         secrets: |
-          GIT_AUTH_TOKEN=${{ secrets.dckr_pat_1j8ffNj6UDEFTQk5FVYWudpDTmE }}
+          GIT_AUTH_TOKEN=${{ secrets.DOCKER_TOKEN }}
 
