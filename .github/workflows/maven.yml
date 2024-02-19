@@ -32,7 +32,6 @@ jobs:
       with:
         push: true
         tags: mct22/springboot-github-action:latest
-        dockerfile: Dockerfile
         secrets: |
           GIT_AUTH_TOKEN=${{ secrets.DOCKER_TOKEN }}
 
