@@ -27,7 +27,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn clean install
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: mct22/springboot-github-action:latest
+        dockerfile: Dockerfile
+        secrets: |
+          GIT_AUTH_TOKEN=${{ secrets.dckr_pat_1j8ffNj6UDEFTQk5FVYWudpDTmE }}
 
-   
