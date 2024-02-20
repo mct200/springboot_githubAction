@@ -31,7 +31,8 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: mct22/springboot-github-action:latest
+        image:  mct22/springboot-github-action
+        tags: latest
         registry: docker.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKERHUB_USERNAME }}
