@@ -30,7 +30,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
-        push: true
         image:  mct22/springboot-github-action
         tags: latest
         registry: docker.io
