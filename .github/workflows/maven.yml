@@ -1,12 +1,12 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+# Ce workflow va construire un projet Java avec Maven, et mettre en cache/restaurer les dépendances pour améliorer le temps d'exécution du workflow
+# Pour plus d'informations, consultez : https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
 
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+# Ce workflow utilise des actions qui ne sont pas certifiées par GitHub.
+# Elles sont fournies par un tiers et sont régies par
+# des conditions d'utilisation, une politique de confidentialité et une documentation d'assistance
+# distinctes.
 
-name: projet ci/cd githubAction
+name: CI/CD pour le projet avec GitHub Actions
 
 on:
   push:
@@ -20,25 +20,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 17
+    - name: Checkout du code
+      uses: actions/checkout@v3
+    - name: Configuration de JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Login to Docker Hub
+    - name: Connexion à Docker Hub
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push
+    - name: Construction et publication
       uses: docker/build-push-action@v5
       with:
           push: true
           tags: mct22/springboot-github-action
-
-
-
-
-
