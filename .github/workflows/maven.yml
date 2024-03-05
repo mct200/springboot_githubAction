@@ -54,8 +54,8 @@ jobs:
 
       - name: Construction de l'image Docker
         run: |
-          docker build -t $DOCKER_USER/springboot-cicd-github .
-          docker save $DOCKER_USER/springboot-cicd-github > springboot-cicd-github.tar
+          docker build -t mct22/springboot-github-action .
+          docker save mct22/springboot-github-action > springboot-github-action.tar
 
       - name: Connexion à Docker Hub
         uses: docker/login-action@v2
